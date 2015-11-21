@@ -21,7 +21,7 @@ while [ "$people" -gt "$count" ]
 	ages+=($age)
 	count=$(( $count + 1 ))
 done
-
+clear
 echo  '#################################################################'
 echo -e "we are in total $people people\n"
 count="0"
@@ -45,3 +45,5 @@ echo  '#################################################################'
 }
 
 main
+echo "Do you want to try again? [y/n]"
+read -r ans ; echo $ans ; if [ $ans == "y" ] ; then clear ; main ; else exit ; fi
