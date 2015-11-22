@@ -25,6 +25,8 @@ def main():
 
 if len(sys.argv) > 2:
 	usage()
+elif len(sys.argv) == 1:
+        usage()
 elif sys.argv[1] == 'male':
 	sex = 'male'
 	output = main()
