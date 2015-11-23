@@ -3,6 +3,11 @@
 import sys
 import os
 
+def write_file(output):
+	with open(sex+'_output.txt', 'a') as the_file:
+                the_file.write(output+ "\n")
+	print output + " also appended to " + the_file.name
+
 def extract_num(input_str):
 	if input_str is None or input_str == '':
 		return 0
@@ -44,15 +49,11 @@ elif len(sys.argv) == 1:
 elif sys.argv[1] == 'male':
 	sex = 'male'
 	output = main()
-	with open('male_output.txt', 'a') as the_file:
-		the_file.write(output+ "\n")
-	print output + " also appended to " + the_file.name
+	write_file(output)
 elif sys.argv[1] == 'female':
 	sex = 'female'
 	output = main()
-	with open('fimale_output.txt', 'a') as the_file:
-		the_file.write(output+ "\n")
-	print output + " also appended to " + the_file.name
+	write_file(output)
 else:
 	usage()
 
