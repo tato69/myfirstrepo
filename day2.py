@@ -3,6 +3,16 @@
 import sys
 import os
 
+def extract_num(input_str):
+	if input_str is None or input_str == '':
+		return 0
+
+	out_number = ''
+	for ele in input_str:
+        	if ele.isdigit():
+			out_number += ele
+        return float(out_number)    
+
 def usage():
 	print "usage is " + sys.argv[0] + " <argument>"
 	print "where argument is 'male' or 'female'\n"
@@ -12,13 +22,17 @@ def main():
 	if sex == 'male' or sex == 'female':
 	        print "your gender is " + sex
 	
-	age = input('How old are you?\n')
-	high = input('How tall are you?\n')
-	weight = input('How much do you weigh?\n')
+	age = raw_input('How old are you?\n')
+	high = raw_input('How tall are you?\n')
+	weight = raw_input('How much do you weigh?\n')
 
-	convage = (age * 52)
-	convhigh = ( high / 30.48 )
-	convweight = ( weight * 2.2 )
+	numage = extract_num(age)
+	numhigh = extract_num(high)
+	numweight = extract_num(weight) 
+
+	convage = (numage * 52)
+	convhigh = ( numhigh / 30.48 )
+	convweight = ( numweight * 2.2 )
 	
 	return "weeks " + str(convage) + " feet " + str(("%.2f" %convhigh)) + " pounds " + str(convweight)
 	
